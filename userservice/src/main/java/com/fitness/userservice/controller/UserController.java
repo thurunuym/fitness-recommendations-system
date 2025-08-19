@@ -1,5 +1,6 @@
 package com.fitness.userservice.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.fitness.userservice.dto.RegisterRequest;
@@ -24,10 +25,14 @@ public class UserController {
         return  ResponseEntity.ok(userService.getUserProfile(userId));
         }
 
-    @GetMapping("/register ")
+    @PostMapping("/register")
         public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request){
-        return ResponseEntity.ok(request.register(request));
+        return ResponseEntity.ok(userService.register(request));
 }
 
 
 }
+
+
+
+//@RequestBody → Take the JSON from the request and turn it into a RegisterRequest object.
