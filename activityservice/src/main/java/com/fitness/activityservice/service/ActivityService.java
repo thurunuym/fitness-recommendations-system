@@ -1,5 +1,9 @@
 package com.fitness.activityservice.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fitness.activityservice.dto.ActivityRequest;
 import com.fitness.activityservice.dto.ActivityResponse;
@@ -10,8 +14,9 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+
 public class ActivityService {
-    
+    @Autowired
     private final ActivityRepository activityRepository;
 
     public ActivityResponse trackActivity(ActivityRequest request) {
@@ -43,5 +48,21 @@ public class ActivityService {
         response.setUpdatedAt(activity.getUpdatedAt());
         return response;
     }
+
+
+        public List<ActivityResponse> getUserActivities(String userId) {
+            List<Activity> activities = activityRepository.findByUserId(userId);
+            return activities.stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+        }
+
+
+        public ActivityResponse getActivity(String activity) {
+
+           Activity act = activityRepository.findById(activity) //findById() returns Optional<Activity>, not Activity.
+                .orElseThrow(()-> new RuntimeException());
+              return mapToResponse(act);
+        }            
 
 }
