@@ -28,11 +28,16 @@ public class UserController {
     @PostMapping("/register")
         public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request){
         return ResponseEntity.ok(userService.register(request));
-}
+    }
+    //@RequestBody → Take the JSON from the request and turn it into a RegisterRequest object.
+
+    @GetMapping("/{userId}/validate")
+        public ResponseEntity<Boolean> checkValidate(@PathVariable String userId){
+        return  ResponseEntity.ok(userService.existByUser(userId));
+        }
 
 
 }
 
 
 
-//@RequestBody → Take the JSON from the request and turn it into a RegisterRequest object.

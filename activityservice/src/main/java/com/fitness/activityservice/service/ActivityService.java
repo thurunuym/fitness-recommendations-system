@@ -16,10 +16,19 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class ActivityService {
-    @Autowired
-    private final ActivityRepository activityRepository;
 
+    private final ActivityRepository activityRepository;
+   
+    private final UserValidationService userValidationService;
+    
     public ActivityResponse trackActivity(ActivityRequest request) {
+
+        
+        boolean isValidUser = userValidationService.validateUser(request.getUserId());
+        if(!isValidUser){
+            throw new RuntimeException("Invalid User ID: " + request.getUserId());
+        }
+
         Activity activity = Activity.builder()
                 .userId(request.getUserId())
                 .type(request.getType())
@@ -59,7 +68,7 @@ public class ActivityService {
 
 
         public ActivityResponse getActivity(String activity) {
-
+ 
            Activity act = activityRepository.findById(activity) //findById() returns Optional<Activity>, not Activity.
                 .orElseThrow(()-> new RuntimeException());
               return mapToResponse(act);
