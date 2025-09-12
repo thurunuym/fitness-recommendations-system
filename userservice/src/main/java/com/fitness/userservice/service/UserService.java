@@ -8,9 +8,11 @@ import com.fitness.userservice.dto.UserResponse;
 import com.fitness.userservice.model.User;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
-@AllArgsConstructor
+@AllArgsConstructor 
+@Slf4j
 public class UserService {
 
     private UserRepository repository;
@@ -62,6 +64,7 @@ public class UserService {
 
 
     public Boolean existByUser(String userId) {
+        log.info("Calling user validation API for userId: {}", userId);
         return repository.existsById(userId);
     }
 

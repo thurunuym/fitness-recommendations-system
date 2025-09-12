@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AiserviceApplication",
+            "request": "launch",
+            "mainClass": "com.fitness.aiservice.AiserviceApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-UserserviceApplication<userservice>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
