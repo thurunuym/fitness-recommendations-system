@@ -12,6 +12,7 @@ import lombok.Data;
 @Document(collection = "recommendations")
 @Data
 public class Recommendation {
+    
     @Id
     private String id;
     private String activityId;

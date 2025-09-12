@@ -2,6 +2,7 @@ package com.fitness.aiservice.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fitness.aiservice.model.Recommendation;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RecommendationService {
 
+    //@Autowired
     private final RecommendationRepository repository;
     
     public List<Recommendation> getUserRecommendations(String userId){
