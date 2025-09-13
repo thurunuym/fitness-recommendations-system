@@ -27,7 +27,7 @@ public class ActivityService {
     @Value("${rabbitmq.exchange.name}")     //getting these properties from the yaml file
     private String exchange;
 
-    @Value("${rabbitmq.queue.name}")
+    @Value("${rabbitmq.routing.key}")
     private String routingKey;
     
     public ActivityResponse trackActivity(ActivityRequest request) {
