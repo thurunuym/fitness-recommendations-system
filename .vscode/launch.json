@@ -1,5 +1,6 @@
 {
     "configurations": [
+        
         {
             "type": "java",
             "name": "AiserviceApplication",
@@ -25,7 +26,8 @@
             "mainClass": "com.server.eureka.EurekaApplication",
             "projectName": "eureka",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=61153 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=eureka"
         },
         {
             "type": "java",
@@ -34,6 +36,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.fitness.activityservice.ActivityserviceApplication",
             "projectName": "activityservice",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AiserviceApplication<aiservice>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.fitness.aiservice.AiserviceApplication",
+            "projectName": "aiservice",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

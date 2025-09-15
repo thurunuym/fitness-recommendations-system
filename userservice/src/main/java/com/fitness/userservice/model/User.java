@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)     //Creates a random UUID (e.g., 6e3c4a88-9b4c-4e41-b8d6-10f4c7c3f1e1).
     private String id;
 
     @Column(unique = true, nullable = false)
