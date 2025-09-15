@@ -5,11 +5,11 @@ spring:
         mongodb:
             uri: mongodb://localhost:27017/Fitness_Activity
             database: Fitness_Activity
-        rabbitmq:
-            host: localhost
-            port: 5672
-            username: guest
-            password: guest          
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest          
 
 server:
   port: 8082

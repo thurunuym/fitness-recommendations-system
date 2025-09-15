@@ -50,3 +50,9 @@ public class UserValidationService {
 //.bodyToMono(Boolean.class) → expect the response body to be a Boolean (true or false).
 
 //.block() → turn the reactive Mono<Boolean> into a normal boolean (synchronous).
+
+
+
+
+//UserValidationService is responsible for asking another microservice (“User Service”) if a user exists or is valid.
+//If you mix user validation logic directly into ActivityService, you’re coupling two different responsibilities together. That makes the code harder to maintain and test.

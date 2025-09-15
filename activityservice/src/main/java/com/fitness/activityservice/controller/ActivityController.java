@@ -46,7 +46,8 @@ public class ActivityController {
     //The value of that header is captured into the userId parameter.
     //Key: X-User-ID
     //Value: 222222
-
+    //This style is common when the user ID comes from authentication or a gateway, not from the visible URL.
+    //Easier to inject from an authentication filter or gateway without exposing in URL
 
 
     @GetMapping("/{activityId}")

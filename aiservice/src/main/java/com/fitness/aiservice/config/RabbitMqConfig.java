@@ -1,9 +1,13 @@
 package com.fitness.aiservice.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.support.converter.DefaultClassMapper;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,10 +41,27 @@ public class RabbitMqConfig {
         return BindingBuilder.bind(activityQueue).to(activityExchange).with(routingKey);
     }
 
-    @Bean  
-    public MessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }
+    // @Bean  
+    // public MessageConverter jsonMessageConverter() {
+    //     return new Jackson2JsonMessageConverter();
+    // }
+
+        @Bean
+public MessageConverter jsonMessageConverter() {
+    Jackson2JsonMessageConverter converter = new Jackson2JsonMessageConverter();
+
+    DefaultClassMapper classMapper = new DefaultClassMapper();
+    Map<String, Class<?>> idClassMapping = new HashMap<>();
+    idClassMapping.put(
+        "com.fitness.activityservice.model.Activity",
+        com.fitness.aiservice.model.Activity.class
+    );
+    classMapper.setIdClassMapping(idClassMapping);
+
+    converter.setClassMapper(classMapper);
+    return converter;
+}
+
 }
 
 // jsonMessageConverter  >>  converter to java object to json 
