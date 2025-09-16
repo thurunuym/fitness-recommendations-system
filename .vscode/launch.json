@@ -1,6 +1,11 @@
 {
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "ConfigserverApplication",
+            "request": "launch",
+            "mainClass": "com.fitness.configserver.ConfigserverApplication"
+        },
         {
             "type": "java",
             "name": "AiserviceApplication",
