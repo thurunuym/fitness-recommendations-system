@@ -1,5 +1,5 @@
 
-###An intelligent, microservice-based fitness recommendation system** designed to provide personalized workout and nutrition insights.
+## **An intelligent, microservice-based fitness recommendation system** designed to provide personalized fitness insights.
 
 ---
 
@@ -10,7 +10,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Keycloak](https://img.shields.io/badge/Keycloak-000?style=for-the-badge&logo=keycloak&logoColor=white)
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
-![Eureka](https://img.shields.io/badge/Eureka-_?style=for-the-badge&logo=netflix&logoColor=E50914)
+![Eureka Server](https://img.shields.io/badge/Eureka_Server-6DB33F?style=for-the-badge&logo=springcloud&logoColor=white)
 ![Gemini API](https://img.shields.io/badge/Gemini_API-4285F4?style=for-the-badge&logo=google-gemini&logoColor=white)
 
 * **Frontend:** React.js
