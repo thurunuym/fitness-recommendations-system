@@ -7,10 +7,12 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Document(collection = "recommendations")
 @Data
+@Builder
 public class Recommendation {
     
     @Id
@@ -21,7 +23,7 @@ public class Recommendation {
     private String recommendation;
     private List<String> improvements;
     private List<String> safety;
-    private List<String> Suggestions;
+    private List<String> suggestions;
     @CreatedDate
     private LocalDateTime createdAt;
 }
